@@ -1,6 +1,6 @@
 # システム再インストールを楽にする手順: 専用BashScriptのすすめ
 
-![](assets/eye_catch.png)
+![](https://raw.githubusercontent.com/yKesamaru/reinstall_system/main/assets/eye_catch.png)
 ## はじめに
 Ubuntuは2年おきにLTS(Long Term Support)版がリリースされます。
 わたしは最新版のLTS版がリリースされてから十分な期間を経て、その前のバージョンのLTS版をシステムとして導入しています。たとえば、現在Ubuntu 22.04が最新版であり、まもなく24.04がリリースされるタイミングです。ですので今回のシステム入れ替えは20.04から22.04へのアップグレードとなります。
@@ -19,7 +19,7 @@ Ubuntuは2年おきにLTS(Long Term Support)版がリリースされます。
 - apt_install_list.sh: aptでインストールするパッケージのリストです。
 - copy_dot_files.sh: ホームディレクトリにコピーするドットファイルのリストです。
 
-:: note ::
+::note::
 これらスクリプトの中にはシステム固有の情報がハードコーティングされているため、ここでは公開できる部分に絞って掲載します。
 
 ### ins.sh
@@ -36,7 +36,7 @@ https://github.com/yKesamaru/reinstall_system/blob/542f9cec84464e12375562cefb56a
 
 これらをご自身の環境で再現する場合、`dconf watch /`コマンドを使い、設定を変更したときに出力されるコマンドを参考にすると良いでしょう。
 
-![](assets/output.gif)
+![](https://raw.githubusercontent.com/yKesamaru/reinstall_system/main/assets/output.gif)
 
 ### apt_install_list.sh
 
@@ -55,7 +55,7 @@ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/
 このURLは以下のページから取得してください。
 [CUDA Toolkit 12.3 Update 1 Downloads](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=20.04&target_type=deb_network)
 
-![](assets/2023-12-14-13-06-04.png)
+![](https://raw.githubusercontent.com/yKesamaru/reinstall_system/main/assets/2023-12-14-13-06-04.png)
 
 ### VS Code
 
@@ -77,3 +77,24 @@ flatpak install flathub com.visualstudio.code
 
 ### copy_dot_files.sh
 
+https://github.com/yKesamaru/reinstall_system/blob/81c66c1fa2f0413a51aab37eac602222f44f66aa/copy_dot_files.sh#L1-L35
+
+これも説明不要かと思いますが、一部解説します。
+
+https://github.com/yKesamaru/reinstall_system/blob/81c66c1fa2f0413a51aab37eac602222f44f66aa/copy_dot_files.sh#L23
+
+大きな容量をとるフォント群は、ネットワークインストールするよりもローカルコピーした方が早いです。
+`/home/user/.fonts`と`/home/user/.local/share/fonts`のどちらでも良いですが、より新しい規格は後者です。わたしは後者に統一しています。
+
+https://github.com/yKesamaru/reinstall_system/blob/81c66c1fa2f0413a51aab37eac602222f44f66aa/copy_dot_files.sh#L31
+
+ユーザーが管理する`systemd`ファイル群は`/home/user/.config/systemd/user`ディレクトリ以下で管理しています。
+これもコピーするだけで復活します。
+
+![](https://raw.githubusercontent.com/yKesamaru/reinstall_system/main/assets/2023-12-14-13-37-34.png)
+
+## おわりに
+以上で大方の説明は終わりです。
+これで「〇〇をインストールしたらやること10か条」のような記事を見ながら手作業で設定する必要がなくなります。システム入れ替えは忘れた頃に必ずやってきますので、そのときにお役立てください。
+
+以上です。ありがとうございました。
