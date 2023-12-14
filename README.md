@@ -28,6 +28,9 @@ Ubuntuは2年おきにLTS(Long Term Support)版がリリースされます。
 https://github.com/yKesamaru/reinstall_system/blob/dcbf24f9259d4ea040d3f8dd2c4bdf8cda1868b9/ins.sh#L1-L169
 
 #### 作業環境の設定
+
+https://github.com/yKesamaru/reinstall_system/blob/542f9cec84464e12375562cefb56ad9cbf50e364/ins.sh#L29-L68
+
 この部分ではユーザー体験に直接関わる設定をおこなっています。
 `gsettings`コマンドを使用することにより、使い慣れたUIやキーバインド、各種設定を再現します。
 
@@ -36,8 +39,15 @@ https://github.com/yKesamaru/reinstall_system/blob/dcbf24f9259d4ea040d3f8dd2c4bd
 ![](assets/output.gif)
 
 ### apt_install_list.sh
+
+https://github.com/yKesamaru/reinstall_system/blob/542f9cec84464e12375562cefb56ad9cbf50e364/apt_install_list.sh#L1-L124
+
 こちらも説明が必要な部分のみ解説します。
+
 #### Nvidia ドライバーとCUDAライブラリのインストール
+
+https://github.com/yKesamaru/reinstall_system/blob/542f9cec84464e12375562cefb56ad9cbf50e364/apt_install_list.sh#L55-L70
+
 この部分のみ、Ubuntuのバージョンによってインストールするパッケージが異なります。
 ```bash
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
@@ -48,13 +58,22 @@ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/
 ![](assets/2023-12-14-13-06-04.png)
 
 ### VS Code
+
+https://github.com/yKesamaru/reinstall_system/blob/542f9cec84464e12375562cefb56ad9cbf50e364/apt_install_list.sh#L73-L82
+
 ここではマイクロソフトのリポジトリから取得していますが、snapでもインストールできます。その場合は以下のようになります。ただし以前snapバージョンでは日本語の取り回しに難があったため、わたしはdebパッケージを使用しています。
+
 ```bash
 snap install code
 ```
+
 Flatpakでインストールするには以下の手順に沿います。
+
 ```bash
 sudo apt install flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub com.visualstudio.code
 ```
+
+### copy_dot_files.sh
+
