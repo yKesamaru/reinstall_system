@@ -3,7 +3,7 @@
 ![](https://raw.githubusercontent.com/yKesamaru/reinstall_system/main/assets/eye_catch.png)
 ## はじめに
 Ubuntuは2年おきにLTS(Long Term Support)版がリリースされます。
-わたしは最新版のLTS版がリリースされてから十分な期間を経て、その前のバージョンのLTS版をシステムとして導入しています。たとえば、現在Ubuntu 22.04が最新版であり、まもなく24.04がリリースされるタイミングです。ですので今回のシステム入れ替えは20.04から22.04へのアップグレードとなります。
+わたしは最新版のLTS版がリリースされてから十分な期間を経て、LTS版を導入しています。たとえば、現在Ubuntu 22.04が最新版であり、まもなく24.04がリリースされるタイミングです。ですので今回のシステム入れ替えは20.04から22.04へのアップグレードとなります。
 
 さて、ネット上には「〇〇をインストールしたらやること10か条」というような記事が多くあります。
 それらはだいたい同じことが書いてある傾向があり、それをすべて手作業でおこなっています。
@@ -11,18 +11,18 @@ Ubuntuは2年おきにLTS(Long Term Support)版がリリースされます。
 一方でAnsibleのような「大規模なインフラストラクチャの管理」に使われるツールがありますが、1台のPCのためにそれを使うのはオーバーキルです。
 
 そこで簡単なBashScriptを書いて、それを実行するだけでシステムを再インストールできるようにしています。
-随分前からこの方法を使っていますが、大きな障害もなく使えています。
+随分昔からこの方法を使っていますが、大きな障害もなく使えています。
 
 ## スクリプト構成
 スクリプトは以下の3つに分かれています。
-- ins.sh: インストール時に必須のパッケージをダウンロードしたり、他のスクリプトを実行したりします。
-- apt_install_list.sh: aptでインストールするパッケージのリストです。
-- copy_dot_files.sh: ホームディレクトリにコピーするドットファイルのリストです。
+- `ins.sh`: インストール時に必須のパッケージをダウンロードしたり、他のスクリプトを実行します。
+- `apt_install_list.sh`: aptでインストールするパッケージのリストです。
+- `copy_dot_files.sh`: ホームディレクトリにコピーするドットファイルのリストです。
 
 ::note::
 これらスクリプトの中にはシステム固有の情報がハードコーティングされているため、ここでは公開できる部分に絞って掲載します。
 
-### ins.sh
+### `ins.sh`
 コメントに説明が書いてありますので、それぞれ参照いただくとして、説明が必要な部分を解説します。
 
 https://github.com/yKesamaru/reinstall_system/blob/dcbf24f9259d4ea040d3f8dd2c4bdf8cda1868b9/ins.sh#L1-L169
@@ -38,17 +38,17 @@ https://github.com/yKesamaru/reinstall_system/blob/542f9cec84464e12375562cefb56a
 
 ![](https://raw.githubusercontent.com/yKesamaru/reinstall_system/main/assets/output.gif)
 
-### apt_install_list.sh
+### `apt_install_list.sh`
 
 https://github.com/yKesamaru/reinstall_system/blob/542f9cec84464e12375562cefb56ad9cbf50e364/apt_install_list.sh#L1-L124
 
 こちらも説明が必要な部分のみ解説します。
 
-#### Nvidia ドライバーとCUDAライブラリのインストール
+#### NvidiaドライバーとCUDAライブラリのインストール
 
 https://github.com/yKesamaru/reinstall_system/blob/542f9cec84464e12375562cefb56ad9cbf50e364/apt_install_list.sh#L55-L70
 
-この部分のみ、Ubuntuのバージョンによってインストールするパッケージが異なります。
+*この部分のみ、Ubuntuのバージョンによってインストールするパッケージが異なります。*
 ```bash
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
 ```
@@ -64,7 +64,7 @@ https://github.com/yKesamaru/reinstall_system/blob/542f9cec84464e12375562cefb56a
 ここではマイクロソフトのリポジトリから取得していますが、snapでもインストールできます。その場合は以下のようになります。ただし以前snapバージョンでは日本語の取り回しに難があったため、わたしはdebパッケージを使用しています。
 
 ```bash
-snap install code
+sudo snap install code
 ```
 
 Flatpakでインストールするには以下の手順に沿います。
@@ -75,7 +75,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 flatpak install flathub com.visualstudio.code
 ```
 
-### copy_dot_files.sh
+### `copy_dot_files.sh`
 
 https://github.com/yKesamaru/reinstall_system/blob/81c66c1fa2f0413a51aab37eac602222f44f66aa/copy_dot_files.sh#L1-L35
 
