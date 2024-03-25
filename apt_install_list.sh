@@ -111,6 +111,7 @@ apt install -y ncdu
 # pcmanfm-qt ファイルマネージャ
 apt install -y pcmanfm-qt
 apt install -y qt5ct
+apt install -y gnome-session
 # thunar ファイルマネージャ
 apt install -y thunar
 # p7zip アーカイバ

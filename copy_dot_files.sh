@@ -25,11 +25,23 @@ cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.local/share/i
 cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.local/share/keyrings/ /home/user/.local/share/
 cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.local/share/nautilus/ /home/user/.local/share/ # for nautilus script folder.
 cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.local/share/themes/ /home/user/.local/share/
+cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.local/share/voicevox-engine/ /home/user/.local/share/
+cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.local/share/yuzu/ /home/user/.local/share/
+cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.local/share/kdenllive/ /home/user/.local/share/
+cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.local/share/applications/ /home/user/.local/share/
 
 # `.config` Directory
 cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.config/nautilus/ /home/user/.config/     # search-metadata, accels, etc.
 cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.config/systemd/ /home/user/.config/
-cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.config/autostart/Flameshot.desktop /home/user/.config/autostart/
+cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.config/autostart/ /home/user/.config/autostart/
+cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.config/voicevox/ /home/user/.config/voicevox/
+cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.config/PCSX2/ /home/user/.config/PCSX2/
+cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.config/rpcs3/ /home/user/.config/rpcs3/
+cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.config/qt5ct/ /home/user/.config/qt5ct/
+cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.config/pcmanfm-qt/ /home/user/.config/pcmanfm-qt/
+cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.config/Thunar/ /home/user/.config/Thunar/
+cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.config/xfce4/ /home/user/.config/xfce4/
+cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.config/nautilus/ /home/user/.config/nautilus/
 
 # applications folder
 cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.local/share/applications/pm-suspend.desktop /home/user/.local/share/applications/;
