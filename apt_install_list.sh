@@ -108,6 +108,14 @@ apt install -y manpages-ja
 apt install -y meld
 apt install -y mplayer
 apt install -y ncdu
+# pcmanfm-qt ファイルマネージャ
+apt install -y pcmanfm-qt
+apt install -y qt5ct
+# thunar ファイルマネージャ
+apt install -y thunar
+# p7zip アーカイバ
+apt install -y p7zip
+
 apt install -y pm-utils
 apt install -y printer-driver-gutenprint
 apt install -y pwgen
