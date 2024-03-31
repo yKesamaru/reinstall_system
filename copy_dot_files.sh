@@ -25,9 +25,6 @@ cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.local/share/i
 cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.local/share/keyrings/ /home/user/.local/share/
 cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.local/share/nautilus/ /home/user/.local/share/ # for nautilus script folder.
 cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.local/share/themes/ /home/user/.local/share/
-cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.local/share/voicevox-engine/ /home/user/.local/share/
-cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.local/share/yuzu/ /home/user/.local/share/
-cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.local/share/kdenllive/ /home/user/.local/share/
 cp -afv /media/user/BACKUP_HDD/homeフォルダバックアップ/.local/share/applications/ /home/user/.local/share/
 
 # `.config` Directory
