@@ -10,12 +10,12 @@ apt install -y coreutils
 apt install -y vlc
 apt install -y mcomix
 apt install -y sox
-apt install -y fcitx
-apt install -y fcitx-config-gtk
-apt install -y fcitx-mozc
-apt install -y fcitx-table-emoji
-apt install -y fcitx-tools
-
+# apt install -y fcitx
+# apt install -y fcitx-config-gtk
+# apt install -y fcitx-mozc
+# apt install -y fcitx-table-emoji
+# apt install -y fcitx-tools
+apt install -y ibus-mozc
 
 # # -----------------------------------
 # # FACE01用
@@ -55,7 +55,7 @@ apt install -y webp
 # # ----------------------------------------------
 # # Nvidia ドライバーとCUDAライブラリのインストール
 # # ----------------------------------------------
-cd /home/user || exit
+cd /home/terms || exit
 apt install -y cuda-drivers
 # 22.04の場合（ネットワークインストール）
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
@@ -73,7 +73,7 @@ apt install -y libcublas-dev
 # # -----------------------------------
 # # VSCode
 # # -----------------------------------
-if [[ ! -e /home/user/microsoft.gpg ]]; then
+if [[ ! -e /home/terms/microsoft.gpg ]]; then
   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 fi
 install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
@@ -93,41 +93,59 @@ apt install -y fdupes
 apt install -y ffmpegthumbnailer
 apt install -y font-manager
 apt install -y gimp
+apt install -y gnome-session  # thunar ファイルマネージャに必要
 apt install -y gnome-system-tools
 apt install -y gnome-tweaks
 apt install -y gnupg-agent
 apt install -y gparted
 apt install -y grsync
-apt install -y gufw
 apt install -y gthumb
+apt install -y gufw
 apt install -y handbrake
 apt install -y inkscape
+apt install -y inotify-tools  # kdenliveレンダリング完了の通知に使用
 apt install -y inxi
 apt install -y libreoffice-calc
 apt install -y manpages-ja
 apt install -y meld
 apt install -y mplayer
 apt install -y ncdu
-# pcmanfm-qt ファイルマネージャ
-apt install -y pcmanfm-qt
-apt install -y qt5ct
-apt install -y gnome-session
-# thunar ファイルマネージャ
-apt install -y thunar
-# p7zip アーカイバ
-apt install -y p7zip
-
+apt install -y p7zip  # p7zip アーカイバ
+apt install -y pcmanfm-qt  # pcmanfm-qt ファイルマネージャ
 apt install -y pm-utils
 apt install -y printer-driver-gutenprint
 apt install -y pwgen
+apt install -y qt5ct  # kde関連アプリケーションをGNOME環境になじませる設定ユーティリティ
 apt install -y rdfind
 apt install -y simple-scan
 apt install -y simplescreenrecorder
+apt install -y thunar  # thunar ファイルマネージャ
 apt install -y thunderbird-gnome-support
-apt install -y translate-shell
+apt install -y translate-shell  # manpage日本語化
 apt install -y transmission-gtk
 apt install -y tree
 apt install -y tumbler-plugins-extra
 apt install -y usb-creator-gtk
 apt install -y xsane
 apt install -y xsel
+
+apt install -y devede  # DVDオーサリング
+apt install -y brasero  # DVDオーサリング
+apt install -y gnome-shell-extension-manager
+# apt install -y extension-manager  # Gnome shell extension manager
+
+
+# # ----------------------------------------------
+# # snap software install
+# # ----------------------------------------------
+# snap install cups
+# snap install firefox
+snap install gh
+# snap install glaxnimate
+snap install gtk-common-themes
+# snap install kdenlive
+snap install losslesscut
+snap install snap-store
+snap install snapd-desktop-integration
+
+# （Flatpakアプリケーションのインストールは`ins.sh`に記述。

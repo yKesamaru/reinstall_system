@@ -16,8 +16,9 @@ apt install -y ca-certificates
 apt install -y curl
 apt install -y ufw
 apt install -y zenity
-apt install -y fcitx
-apt install -y tee
+# apt install -y fcitx
+apt install -y ibus-table-emoji
+# apt install -y tee  # /usr/bin/tee
 
 
 # ----------------------------------------------
@@ -86,9 +87,10 @@ mount /dev/disk/by-label/xxxx  /media/user/xxxx
 # 必要なファイルをコピー
 # -----------------------------------
 cd /media/user/BACKUP_HDD/homeフォルダバックアップ/XXXXX  # XXXXXは任意に変更して下さい
-cp -afv ./apt_install_list.sh /home/user/
-cp -afv ./copy_dot_files.sh /home/user/
-cp -afv ./notice.wav /home/user/
+cp -afv ./apt_install_list.sh /home/terms/
+cp -afv ./copy_dot_files.sh /home/terms/
+cp -afv ./re-install_Flatpak_apps_and_set_permissions.sh /home/terms/
+cp -afv ./notice.wav /home/terms/
 
 
 # -----------------------------------
@@ -105,7 +107,17 @@ apt update && apt upgrade -y
 
 # apt_install_list.sh実行
 chmod +x apt_install_list.sh
-bash -c /home/user/apt_install_list.sh | tee apt_install.log
+bash -c /home/terms/apt_install_list.sh | tee apt_install.log
+
+
+# -----------------------------------
+# re-install_Flatpak_apps_and_set_permissions.sh実行
+# （Flatpakアプリケーションインストールと権限の上書き (override permissions)）
+# -----------------------------------
+apt install -y flatpak
+apt install -y qt5-flatpak-platformtheme
+chmod +x re-install_Flatpak_apps_and_set_permissions.sh
+bash -c /home/terms/re-install_Flatpak_apps_and_set_permissions.sh
 
 
 # -----------------------------------
@@ -117,9 +129,9 @@ bash -c /home/user/apt_install_list.sh | tee apt_install.log
 # -----------------------------------
 # make do copy_dot_files.sh
 # -----------------------------------
-chmod +x /home/user/copy_dot_files.sh
-bash -c /home/user/copy_dot_files.sh
-chown -R user:user /home/user/*
+chmod +x /home/terms/copy_dot_files.sh
+bash -c /home/terms/copy_dot_files.sh
+chown -R user:user /home/terms/*
 
 
 # ----------------------------------------------
@@ -145,7 +157,7 @@ ufw allow from ADDRESS to any port PORT_NUMBER
 # -----------------------------------
 # bashrc file, Add postscript
 # -----------------------------------
-cat postscript_bashrc.txt >> /home/user/.bashrc
+cat postscript_bashrc.txt >> /home/terms/.bashrc
 
 
 
